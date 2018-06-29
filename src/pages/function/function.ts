@@ -13,6 +13,7 @@ export class FunctionPage {
   public functionExists: boolean = false;
   public functionName: string = 'led';
   public functionParameter: string = 'on';
+  public isAuto: boolean = true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public particle: ParticleProvider) {
   }
@@ -27,8 +28,19 @@ export class FunctionPage {
 
   callFunction() {
     this.particle.callFunction(this.functionName, this.functionParameter);
+    this.isAuto = false;
+    if ( this.functionParameter === 'on') {
+    this.functionParameter = 'off';
+    }
+      else {
+        this.functionParameter = 'on';
+      }
   }
 
+  auto() {
+    this.particle.callFunction(this.functionName, "auto");
+    this.isAuto = true;
+  }
   login() {
     this.navCtrl.push( LoginPage );
   }

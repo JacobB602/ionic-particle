@@ -28,17 +28,18 @@
   <div *ngIf="particle.token && particle.device">
       <!-- Make sure we actually were able to poll the variable -->
       <div *ngIf="subscribed">
-        <h3>Device variables</h3>
+        <h3>Headband's Settings</h3>
         <!--
-            Finally, we can display the variable var1, which is defined in variable.ts
+            Finally, we can display the variable Voltage, which is defined in variable.ts
         -->
+        <button ion-button (click)="login()">Home</button>
         <p>
-        The device variable "var1" is periodically polled, and the current value is {{var1}} 
+        The headband's voltage is currently {{Voltage}}
         </p>
       </div>
       <!-- "If we were unable to poll the variable, display an error message -->
       <div *ngIf="!subscribed">
-            The device is offline or "var1" is unavailable.
+            The device is offline or voltage is unavailable.
       </div>
   </div>
 

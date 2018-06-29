@@ -7,15 +7,15 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding> 
+<ion-content padding>
   <div *ngIf="!particle.token">
       Please login and select a device. <br />
       <button ion-button (click)="login()">Login</button>
   </div>
   <div *ngIf="particle.token && particle.device">
-      <h5> Celtics win in 2019 </h5>
+      <h5> Night Wear </h5>
       <p>
-        This app demonstrates how to access a Particle.io device to display its state, read events, and call functions.
+        This app allows you to view your headband's voltage and manually adjust the light that it provides.
       </p>
       <!-- You can display different device states by checking particle.device -->
       <p *ngIf="!particle.device || !particle.device.connected">{{particle.device.name}} is offline</p>

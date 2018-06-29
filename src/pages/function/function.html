@@ -19,7 +19,6 @@
   -->
   <div *ngIf="!particle.token">
       Please login and select a device. <br />
-      <button ion-button (click)="login()">Login</button>
   </div>
 
   <!--
@@ -32,7 +31,8 @@
             You can call device functions from buttons
         </p>
         <!-- The click directive uses particle.callFunction to call a cloud function -->
-        <button ion-button (click)="callFunction()">{{functionName}}</button>
+        <button ion-button (click)="callFunction()">Turn LED {{functionParameter}}</button>
+        <button *ngIf="!isAuto" ion-button (click)="auto()">Auto</button>
       </ng-template>
       <ng-template #display_error>
           <p>
